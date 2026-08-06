@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Muhammed Aksoy — AI/CV Engineer & Ph.D. Researcher specializing in open-world SAR ATR, reliability fusion, and production-grade AI systems.">
+  <meta name="theme-color" content="#0a0e13" data-theme-color>
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Muhammed Aksoy | AI/CV Engineer">
+  <meta property="og:description" content="AI/CV Engineer & Ph.D. Researcher — Open-world SAR ATR, reliability fusion, and production AI systems.">
+
+  <title>Muhammed Aksoy | AI/CV Engineer &amp; Researcher</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Noto+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Inline theme initialization to prevent FOUC -->
+  <script>
+    (() => {
+      const stored = localStorage.getItem('portfolio-theme');
+      const theme = stored === 'light' || stored === 'dark' ? stored : 'dark';
+      document.documentElement.dataset.theme = theme;
+      document
+        .querySelector('[data-theme-color]')
+        ?.setAttribute('content', theme === 'light' ? '#f6f8fa' : '#0a0e13');
+    })();
+  </script>
+</head>
+<body>
+
+<!-- Particle canvas background -->
+<canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     HEADER — Code-style navigation
+     ═══════════════════════════════════════════════════════════════════════ -->
+<header class="site-header" data-header>
+  <nav class="desktop-nav" aria-label="Primary navigation">
+    <a href="#work">~/work</a>
+    <a href="#profile">~/profile</a>
+    <a href="#stack">~/stack</a>
+    <a href="#contact">~/contact</a>
+  </nav>
+
+  <div class="header-actions">
+    <button class="theme-toggle" type="button" aria-label="Change color theme" data-theme-toggle>
+      <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="3.5"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+      </svg>
+      <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M20.25 15.35A8.5 8.5 0 0 1 8.65 3.75 8.5 8.5 0 1 0 20.25 15.35Z"></path>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     HERO — Terminal + Value Proposition
+     ═══════════════════════════════════════════════════════════════════════ -->
+<main id="main-content">
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="hero-greeting">Hi, I'm</p>
+      <h1 class="hero-name">Muhammed Aksoy</h1>
+      <p class="hero-title">AI/CV Engineer &amp; Ph.D. Researcher</p>
+      <div class="hero-tags">
+        <span class="hero-tag">Open-World SAR ATR</span>
+        <span class="hero-tag">Reliable AI</span>
+        <span class="hero-tag">Uncertainty Quantification</span>
+        <span class="hero-tag">AI Agents</span>
+        <span class="hero-tag">Computer Vision</span>
+      </div>
+      <p class="hero-tagline">I build AI systems that know when to predict, defer, or reject — from radar target recognition to astronomical transient triage.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">
+          <svg class="btn-icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Contact me
+        </a>
+        <a href="#" class="btn btn-outline" id="download-cv-btn">
+          <svg class="btn-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CV
+        </a>
+      </div>
+    </div>
+
+    <!-- Terminal window -->
+    <div class="terminal" id="hero-terminal">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="terminal-dot"></span>
+          <span class="terminal-dot"></span>
+          <span class="terminal-dot"></span>
+        </div>
+        <span class="terminal-title">neuroatr — python</span>
+      </div>
+      <div class="terminal-body" id="terminal-body">
+        <!-- Lines injected by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     STATS BAR
+     ═══════════════════════════════════════════════════════════════════════ -->
+<section class="stats-bar" id="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-number" data-count="7">0</div>
+      <div class="stat-label">Publications</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number" data-count="120" data-suffix="K+">0</div>
+      <div class="stat-label">Lines of Code</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number" data-count="5" data-suffix="+">0</div>
+      <div class="stat-label">Years Research</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number" data-count="6" data-suffix="+">0</div>
+      <div class="stat-label">Datasets</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number" data-count="1.5" data-suffix="M+">0</div>
+      <div class="stat-label">Objects Processed</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     SELECTED WORK
+     ═══════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="work">
+  <div class="section-inner">
+    <h2 class="section-heading reveal">Selected Work</h2>
+
+
+    <!-- Academic Work -->
+    <div class="work-category reveal">
+      <p class="work-category-label">Academic Research</p>
+      <div class="work-grid">
+
+        <!-- Card 01: NeuroATR -->
+        <article class="project-card" data-project="neuroatr">
+          <div class="card-header">
+            <span class="card-number">01</span>
+            <span class="card-status">Submitted · 2026</span>
+          </div>
+          <h3 class="card-title">NeuroATR: Open-World SAR ATR</h3>
+          <p class="card-desc">Classifier-centered open-world few-shot SAR ATR with SwinV2 backbones, calibrated knownness scoring, and broad diagnostic unknown-target evaluation.</p>
+          <div class="card-metric"><span class="metric-arrow">↑</span> 96.2% unknown rejection</div>
+          <div class="card-footer">
+            <span class="card-tags">SAR ATR · SwinV2 · Open-World</span>
+            <button class="card-view-btn" type="button">View →</button>
+          </div>
+        </article>
+
+        <!-- Card 02: Multi-Source Evidence -->
+        <article class="project-card" data-project="sar-reliability">
+          <div class="card-header">
+            <span class="card-number">02</span>
+            <span class="card-status">Under review · EAAI</span>
+          </div>
+          <h3 class="card-title">Multi-Source Evidence Learning for Open-World SAR</h3>
+          <p class="card-desc">Geometry-aware readout with logit-energy, prototype geometry, and structural hypothesis learning for configuration-shift detection in SAR ATR.</p>
+          <div class="card-metric"><span class="metric-arrow">↑</span> AUROC 0.9925 (T72 variants)</div>
+          <div class="card-footer">
+            <span class="card-tags">Evidence · Geometry · OOD</span>
+            <button class="card-view-btn" type="button">View →</button>
+          </div>
+        </article>
+
+        <!-- Card 03: Cross-Spectral Registration (SwinV2) -->
+        <article class="project-card" data-project="registration">
+          <div class="card-header">
+            <span class="card-number">03</span>
+            <span class="card-status">Published · IEEE SIU 2022 & 2023</span>
+          </div>
+          <h3 class="card-title">Cross-Spectral Image Registration</h3>
+          <p class="card-desc">Thermal-to-optical registration with pix2pix translation and SwinV2 Siamese matching for cross-modal correspondence.</p>
+          <div class="card-metric"><span class="metric-arrow">↑</span> +17.3% nn-mAP, +24% correctness</div>
+          <div class="card-footer">
+            <span class="card-tags">GAN · SwinV2 · Registration</span>
+            <button class="card-view-btn" type="button">View →</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- Applied & Open-Source Work -->
+    <div class="work-category reveal">
+      <p class="work-category-label">Applied &amp; Open-Source</p>
+      <div class="work-grid work-grid--four">
+
+        <!-- Card 04: Channel Estimation -->
+        <article class="project-card" data-project="channel">
+          <div class="card-header">
+            <span class="card-number">04</span>
+            <span class="card-status">In preparation</span>
+          </div>
+          <h3 class="card-title">Neural Channel Estimation</h3>
+          <p class="card-desc">Neural-assisted parametric receiver for fractional delay-Doppler channels with multi-view OTFS pilot representations.</p>
+          <div class="card-footer">
+            <span class="card-tags">OTFS · Signal Processing</span>
+            <button class="card-view-btn" type="button">View →</button>
+          </div>
+        </article>
+
+        <!-- Card 05: OpenManus -->
+        <article class="project-card" data-project="openmanus">
+          <div class="card-header">
+            <span class="card-number">05</span>
+            <span class="card-status">Open-source</span>
+          </div>
+          <h3 class="card-title">OpenManus Agent Runtime</h3>
+          <p class="card-desc">Major contributor (120K+ lines) to autonomous LLM-agent runtime with sandboxed execution and MCP integration.</p>
+          <div class="card-metric"><span class="metric-arrow">↑</span> 120K+ lines contributed</div>
+          <div class="card-footer">
+            <span class="card-tags">LLM · FastAPI · React</span>
+            <button class="card-view-btn" type="button">View →</button>
+          </div>
+        </article>
+
+        <!-- Card 06: Astronomy -->
+        <article class="project-card" data-project="astronomy">
+          <div class="card-header">
+            <span class="card-number">06</span>
+            <span class="card-status">Research project</span>
+          </div>
+          <h3 class="card-title">Astronomical Transient Triage</h3>
+          <p class="card-desc">Risk-controlled rare-transient triage pipeline for LSST-like surveys over 1.5M+ objects with conformal calibration.</p>
+          <div class="card-metric"><span class="metric-arrow">↑</span> 1.5M+ objects</div>
+          <div class="card-footer">
+            <span class="card-tags">Conformal · Astronomy</span>
+            <button class="card-view-btn" type="button">View →</button>
+          </div>
+        </article>
+
+        <!-- Card 07: Image Registration -->
+        <article class="project-card" data-project="registration">
+          <div class="card-header">
+            <span class="card-number">07</span>
+            <span class="card-status">IEEE SIU 2022 & 2023</span>
+          </div>
+          <h3 class="card-title">Cross-Spectral Image Registration</h3>
+          <p class="card-desc">Thermal-to-optical registration with pix2pix translation and Swin Siamese matching for cross-modal correspondence.</p>
+          <div class="card-metric"><span class="metric-arrow">↑</span> +17.3% nn-mAP, +24% correctness</div>
+          <div class="card-footer">
+            <span class="card-tags">GAN · Swin · Registration</span>
+            <button class="card-view-btn" type="button">View →</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     TECH STACK
+     ═══════════════════════════════════════════════════════════════════════ -->
+<section class="section section--alt" id="stack">
+  <div class="section-inner">
+    <h2 class="section-heading reveal" style="text-align:center;">Tech Stack</h2>
+
+    <div class="tech-stack-grid reveal">
+      <p class="tech-category-label">Deep Learning & CV</p>
+      <span class="tech-badge">PyTorch</span>
+      <span class="tech-badge">SwinV2</span>
+      <span class="tech-badge">scikit-learn</span>
+      <span class="tech-badge">OpenCV</span>
+      <span class="tech-badge">Pillow</span>
+      <span class="tech-badge">Matplotlib</span>
+      <span class="tech-badge">ONNX</span>
+      <span class="tech-badge">TensorRT</span>
+      <span class="tech-badge">Conformal Prediction</span>
+
+      <p class="tech-category-label">Languages & Runtime</p>
+      <span class="tech-badge">Python</span>
+      <span class="tech-badge">TypeScript</span>
+      <span class="tech-badge">C / C++</span>
+      <span class="tech-badge">CUDA</span>
+      <span class="tech-badge">MATLAB</span>
+      <span class="tech-badge">LaTeX</span>
+
+      <p class="tech-category-label">Backend & Infrastructure</p>
+      <span class="tech-badge">FastAPI</span>
+      <span class="tech-badge">Celery</span>
+      <span class="tech-badge">PostgreSQL</span>
+      <span class="tech-badge">Redis</span>
+      <span class="tech-badge">Docker</span>
+      <span class="tech-badge">Git</span>
+
+      <p class="tech-category-label">Frontend & AI Agents</p>
+      <span class="tech-badge">React</span>
+      <span class="tech-badge">Vite</span>
+      <span class="tech-badge">LLM Agents</span>
+      <span class="tech-badge">MCP Servers</span>
+      <span class="tech-badge">SSE</span>
+
+      <p class="tech-category-label">Edge & Hardware</p>
+      <span class="tech-badge">Jetson Nano</span>
+      <span class="tech-badge">Xavier NX</span>
+      <span class="tech-badge">AGX Orin</span>
+      <span class="tech-badge">RTX A5000</span>
+      <span class="tech-badge">FPGA</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     PROFILE
+     ═══════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="profile">
+  <div class="section-inner">
+    <p class="section-label reveal">Profile</p>
+
+    <div class="profile-story reveal">
+      I am a Ph.D. candidate researcher specializing in reliable AI, open-world computer vision, and explanation
+      reliability, with a focus on models that know when to predict, defer, or reject under domain shift.
+      During my doctoral studies, I developed a three-paper reliability program spanning open-world SAR ATR,
+      tri-source reliability fusion, and calibrated explanation gating. I am most interested in building
+      AI systems that are honest about what they do not know — from radar target recognition
+      to astronomical transient triage.
+    </div>
+
+    <!-- Experience & Education -->
+    <div class="profile-subsection reveal">
+      <p class="profile-subsection-title">Experience &amp; Education</p>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dates">Oct 2021 — Present</div>
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <h4>Researcher · Computer Vision &amp; AI Lab</h4>
+            <p class="timeline-org">Istanbul Medipol University</p>
+            <p class="timeline-detail">Lead doctoral research on NeuroATR open-world SAR ATR, tri-source reliability fusion, and SAGE-X explanation reliability protocols. Teaching assistant for ML, DL, CV, and Embedded AI courses.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dates">Jun 2021 — Aug 2021</div>
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <h4>R&amp;D Intern · TUTEL Lab</h4>
+            <p class="timeline-org">TUBITAK BILGEM</p>
+            <p class="timeline-detail">FPGA programming, image processing research, and automatic license plate recognition for intelligent transportation.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dates">Sep 2020 — Oct 2020</div>
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <h4>Machine Learning Researcher</h4>
+            <p class="timeline-org">Kafein Technology Solutions</p>
+            <p class="timeline-detail">Parkinson's disease classification from wearable accelerometer data collected in Turkish hospitals.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dates">Jul 2020 — Sep 2020</div>
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <h4>Engineering Intern · Computer Vision Lab</h4>
+            <p class="timeline-org">Istanbul Medipol University</p>
+            <p class="timeline-detail">Image processing pipelines, neural networks from scratch, and detection model optimization for Jetson Nano &amp; Xavier NX.</p>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="timeline-item">
+          <div class="timeline-dates">2023 — Present</div>
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <h4>Ph.D. (c), Computer Engineering</h4>
+            <p class="timeline-org">Istanbul Medipol University</p>
+            <p class="timeline-detail">Dissertation: Reliable open-world SAR automatic target recognition under domain shift. Expected 2026/2027.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dates">2021 — 2023</div>
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <h4>M.Sc., Computer Engineering</h4>
+            <p class="timeline-org">Istanbul Medipol University · GPA 3.7/4.0</p>
+            <p class="timeline-detail">Thesis: Deep learning for infrared-optical image registration.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dates">2019 — 2021</div>
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <h4>B.Sc., Electrical &amp; Electronics Engineering</h4>
+            <p class="timeline-org">Istanbul Medipol University · GPA 3.13/4.0</p>
+            <p class="timeline-detail">Transferred from University of Science and Technology.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dates">2016 — 2019</div>
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <h4>Computer Software Engineering</h4>
+            <p class="timeline-org">University of Science and Technology · GPA 3.58/4.0</p>
+            <p class="timeline-detail">Transferred to Istanbul Medipol University.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Publications -->
+    <div class="profile-subsection reveal">
+      <p class="profile-subsection-title">Publications</p>
+      <div class="publications-list">
+
+        <div class="pub-item">
+          <span class="pub-tag">Submitted</span>
+          <p class="pub-title">NeuroATR: Classifier-Centered Open-World SAR ATR with Broad Diagnostic Unknown-Target Evaluation</p>
+          <p class="pub-venue">ISPRS Journal of Photogrammetry and Remote Sensing, 2026</p>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-tag">Under review</span>
+          <p class="pub-title">Rethinking Multi-Source Evidence Learning for Open-World SAR Recognition: Geometry-Aware Readout Dominates Under Configuration Shift</p>
+          <p class="pub-venue">Engineering Applications of Artificial Intelligence</p>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-tag">Under review</span>
+          <p class="pub-title">[Title &amp; details omitted for double-blind review]</p>
+          <p class="pub-venue">IEEE Transactions on Neural Networks and Learning Systems</p>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-tag">In prep</span>
+          <p class="pub-title">Neural-Assisted Parametric Path Estimation for Fractional Delay-Doppler Channels</p>
+          <p class="pub-venue">IEEE manuscript in preparation</p>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-tag">In prep</span>
+          <p class="pub-title">Deep Learning for Multi-Source Multi-modal Image Registration: A Systematic Evidence Map</p>
+          <p class="pub-venue">Manuscript in preparation</p>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-tag">Published</span>
+          <p class="pub-title">Infrared-to-Optical Image Translation for Keypoint-Based Image Registration</p>
+          <p class="pub-venue">IEEE Signal Processing and Communications Applications (SIU), 2022</p>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-tag">Published</span>
+          <p class="pub-title">Swin Transformer-based Siamese Network for Thermal and Optical Image Registration</p>
+          <p class="pub-venue">IEEE Signal Processing and Communications Applications (SIU), 2023</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Languages -->
+    <div class="profile-subsection reveal">
+      <p class="profile-subsection-title">Languages</p>
+      <div class="languages-row">
+        <div class="language-item"><strong>Arabic</strong> <span>— Native</span></div>
+        <div class="language-item"><strong>English</strong> <span>— Professional working</span></div>
+        <div class="language-item"><strong>Turkish</strong> <span>— Working proficiency</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     CONTACT
+     ═══════════════════════════════════════════════════════════════════════ -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <h2 class="contact-heading reveal">Let's connect</h2>
+      <a href="mailto:muh.aksoy@outlook.com" class="contact-email reveal">muh.aksoy@outlook.com</a>
+      <div class="contact-links reveal">
+        <a href="https://github.com/muhammed-aksoy" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/muh-aksoy/" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://scholar.google.com/citations?user=Ne77CbEAAAAJ&hl=en" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+          Scholar
+        </a>
+        <span>📍 Istanbul, Türkiye</span>
+      </div>
+    </div>
+
+    <!-- Mini terminal -->
+    <div class="contact-terminal">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="terminal-dot"></span>
+          <span class="terminal-dot"></span>
+          <span class="terminal-dot"></span>
+        </div>
+        <span class="terminal-title">contact.sh</span>
+      </div>
+      <div class="terminal-body">
+        <div><span class="prompt">$</span> <span class="cmd">cat contact.json</span></div>
+        <div><span class="output">{</span></div>
+        <div><span class="output">  "email": "muh.aksoy@outlook.com",</span></div>
+        <div><span class="output">  "github": "@muhammed-aksoy",</span></div>
+        <div><span class="output">  "location": "Istanbul, TR",</span></div>
+        <div><span class="output">  "status": "open to opportunities"</span></div>
+        <div><span class="output">}</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>&copy; 2026 Muhammed Aksoy — built with vanilla HTML/CSS/JS</span>
+    <a href="#top">↑ top</a>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     PROJECT MODAL
+     ═══════════════════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="project-modal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-top">
+      <span class="modal-status" id="modal-status"></span>
+      <button class="modal-close-btn" type="button" id="modal-close">Close ✕</button>
+    </div>
+    <h3 class="modal-title" id="modal-title"></h3>
+    <div class="modal-details-grid" id="modal-details"></div>
+    <div class="modal-footer">
+      <div class="modal-tags" id="modal-tags"></div>
+      <a class="modal-link" id="modal-link" href="#" target="_blank" rel="noopener"></a>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
